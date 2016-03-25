@@ -1,0 +1,59 @@
+<html lang="pt-BR">
+<head>
+<%=H_HeadMetas()%>
+<style>
+input, textarea {
+  max-width:100%;
+}
+h1, h3 {
+  text-align:center;
+}
+p {
+  text-align:center;
+  font-size: 100%;
+}
+a, select, input {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    font-size: 130%;
+}
+</style>
+<script type = 'text/javascript'>
+function ConsultaMUN(cCod,cUF) 
+{
+	localStorage.setItem('UF',cUF);
+	localStorage.setItem('MUN',cCod);
+	window.open("/u_siconv02.apw?MUN="+cCod,"_self");
+}
+function Voltar()
+{
+	window.open("/u_siconvuf.apw","_self");
+}
+</script>
+</head>
+<body onload="javascript:SelectLastUF()">
+<%=H_Ptitle()%>
+<h3>Municípios Próximos</h3>
+<br>
+<% If len(aMunic) > 0 %>
+<% For nI := 1 to len(aMunic) %>
+<p><input type="button" value="<%=aMunic[nI][2]%> / <%=aMunic[nI][3]%>" 
+onclick="javascript:ConsultaMUN('<%=aMunic[nI][1]%>','<%=aMunic[nI][3]%>')"></p>
+<% next %>
+<% else %>
+<p>Latitude: <%=cLat%><br>Longitude: <%=cLong%></p>
+<p>Não foi identificado nenhum município próximo a sua localização atual. Volte para a página anterior e selecione manualmente um Estado e Município para realizar a consulta.</p>
+<% Endif %>
+<p><input type="button" value="Voltar" onclick="javascript:Voltar()"></p>
+<br>
+<br>
+<%=H_Footer()%>
+</body>
+<script>
+</script>
+</html>
+

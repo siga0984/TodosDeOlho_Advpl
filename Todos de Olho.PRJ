@@ -1,0 +1,151 @@
+Group Todos de Olho
+   Version=7.0
+   VSSDB=
+   HasProperties=1
+   Properties
+      BeforeApply=
+      AfterApply=
+      Icon=
+      ID=
+      Version=
+      PalmName=
+      OutPut=
+   End
+   ProjectsCount=1
+   Project Web Site ADVPL
+      FoldersCount=1
+      Folder Fontes
+         VSSPath=Fontes
+         FilesCount=41
+         File \GitHub\TodosDeOlho_Advpl\source\Footer.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\Governo.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\HeadMetas.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\LECSV.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\Municipio.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\PlanoAp.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\PlanoAP.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\pTitle.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\Robot.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SicAbout.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SicAbout.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SicHelp.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SicHelp.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SicLogout.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SicLogout.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SicMain.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SicMain.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SICONV01.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\Siconv01.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SICONV02.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\Siconv02.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\Siconv03.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\Siconv03.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\Siconv04.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\siconv04.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\Siconv05.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\Siconv05.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\Siconv06.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\siconvgeo.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\siconvgeo.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SiconvLib.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SiConvMun.APH
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SiConvMun.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SiconvUF.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SiconvUF.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SicOut.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SicPref.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SicPref.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\TabAux.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\TSTCSV.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\SICError.aph
+             Type=T
+         End
+      End
+   End
+   BatchBuild_Item0=Fontes · ADVPLTESTS_TOP_ADS
+   BatchBuild_Item1=Fontes · ADVPLTESTS_ADS_ADS
+   BatchBuild_Item2=Fontes · ADVPLTESTS_CTREE_CTREE
+   BatchBuild_Item3=Fontes · ADVPLTESTS_BTV_BTV
+   BatchBuild_Item4=Fontes · ADVPLTESTS_TOP_CTREE
+   BatchBuild_Item5=Fontes · ADVPLTESTS_DBF_ADS
+End

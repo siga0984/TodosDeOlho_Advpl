@@ -1,0 +1,143 @@
+#include 'protheus.ch'
+#include 'apwebex.ch'
+
+User function SiconvMUN()
+Local cHtml := ''
+
+
+WEB EXTENDED INIT cHtml
+
+U_DBSetup()
+
+U_LogSite()
+
+If empty(httpget->UF)
+	
+	// Nao chegou o estado
+	PRIVATE cErrorMSG := "Estado (UF) não informado."
+	PRIVATE cErrorHLP := 'A busca por municípios não recebeu corretamente o estado a ser pesquisado. '+;
+											 'Retorne para a tela anterior e tente novamente, ou volte ao início do site.'
+
+	cHtml := h_SicError()
+	
+Else
+	
+	
+	PRIVATE cUF := HTTPGET->UF
+	
+	cUF := upper(left(alltrim(cUF),2))
+	
+	cQuery := "select CODIGO,NOME "
+	cQuery += "from convenioaux.dbo.MUNICIP  "
+	cQuery += "where UF = '"+cUF+"' "
+	cQuery += "order by NOME"
+	
+	PRIVATE aMunicipios := {}
+	
+	USE (TcGenQry(,,cQuery)) ALIAS QRY EXCLUSIVE NEW VIA 'TOPCONN'
+	
+	While !eof()
+		aadd(aMunicipios,{QRY->CODIGO , Capital(alltrim(QRY->NOME))})
+		DbSkip()
+	Enddo
+	
+	USE
+	
+	cHtml := H_SiconvMun()
+	
+Endif
+
+WEB EXTENDED END
+
+Return cHtml
+
+
+
+
+
+
+User function UFNome(cUF)
+
+If cUF == "AC"
+	Return "do Acre"
+Endif
+If cUF == "AL"
+	Return "de Alagoas"
+Endif
+If cUF == "AP"
+	Return "do Amapá"
+Endif
+If cUF == "AM"
+	Return "do Amazonas"
+Endif
+If cUF == "BA"
+	Return "da Bahia"
+Endif
+If cUF == "CE"
+	Return "do Ceará"
+Endif
+If cUF == "DF"
+	Return "do Distrito Federal"
+Endif
+If cUF == "ES"
+	Return "do Espírito Santo"
+Endif
+If cUF == "GO"
+	Return "de Goiás"
+Endif
+If cUF == "MA"
+	Return "do Maranhão"
+Endif
+If cUF == "MT"
+	Return "do Mato Grosso"
+Endif
+If cUF == "MS"
+	Return "do Mato Grosso do Sul"
+Endif
+If cUF == "MG"
+	Return "de Minas Gerais"
+Endif
+If cUF == "PA"
+	Return "do Pará"
+Endif
+If cUF == "PB"
+	Return "da Paraíba"
+Endif
+If cUF == "PR"
+	Return "do Paraná"
+Endif
+If cUF == "PE"
+	Return "de Pernambuco"
+Endif
+If cUF == "PI"
+	Return "do Piauí"
+Endif
+If cUF == "RJ"
+	Return "do Rio de Janeiro"
+Endif
+If cUF == "RN"
+	Return "do Rio Grande do Norte"
+Endif
+If cUF == "RS"
+	Return "do Rio Grande do Sul"
+Endif
+If cUF == "RO"
+	Return "de Rondônia"
+Endif
+If cUF == "RR"
+	Return "de Roraima"
+Endif
+If cUF == "SC"
+	Return "de Santa Catarina"
+Endif
+If cUF == "SP"
+	Return "de São Paulo"
+Endif
+If cUF == "SE"
+	Return "de Sergipe"
+Endif
+If cUF == "TO"
+	Return "do Tocantins"
+Endif
+Return ""
+

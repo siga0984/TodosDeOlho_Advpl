@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://siga0984.no-ip.org:7000/sitemap.txt

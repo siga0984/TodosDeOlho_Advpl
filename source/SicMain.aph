@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<%=H_HeadMetas()%>
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="http://siga984.no-ip.org:7000/">
+<meta property="og:site_name" content="Todos de Olho"/>
+<meta property="og:image" content="http://siga984.no-ip.org:7000/images/Brasao-TodosDeOlho.png"/>
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="298">
+<meta property="og:image:height" content="75">
+<style>
+input, textarea {
+  max-width:100%;
+}
+
+p {
+  text-align:center;
+  font-size: 120%;
+}
+input {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    font-size: 100%;
+}           
+
+.fb-share-button {
+  text-align:center;
+  max-width:100%;
+}
+
+</style>
+<script type="text/javascript">
+function Entrar(cUrl)
+{
+  window.open(cUrl,'_self');
+}
+</script>
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<%=H_Ptitle()%>
+<p>Acompanhe as Propostas e Convênios firmados entre a União e o seu Município, 
+fique por dentro da utilização das verbas e ajude o país a acabar com a corrupção. 
+Participe e compartilhe esta iniciativa.</p>  
+<p><input type="button" value="Consultar Propostas" onclick="javascript:Entrar('/u_siconvuf.apw')"></p>
+<p><input type="button" value="Precisa de Ajuda ?" onclick="javascript:Entrar('/U_SicHelp.apw')"></p>
+<p><input type="button" value="Sobre o Site" onclick="javascript:Entrar('/U_SicAbout.apw')"></p>
+<p><img src='/images/EstamosDeOlho.png'></p>
+<div style="margin: 0 auto; width: 100%;" class="fb-share-button" data-href="http://siga0984.no-ip.org:7000/" data-layout="button_count"></div>
+<br>
+<%=H_Footer()%>
+</body>
+</html>
+             
