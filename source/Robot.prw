@@ -51,7 +51,7 @@ For nI := 1 to len(aMun)
 	
 	cQuery := "select CDORGCCD from PROSPGM "
 	cQuery += " where UFPPN = '"+aMun[nI][3]+"' "
-	cQuery += " and NMMUNPPN = '"+escape(aMun[nI][2])+"' "
+	cQuery += " and NMMUNPPN = '"+_escape(aMun[nI][2])+"' "
 	cQuery += " group by CDORGCCD "
 	cQuery += " order by 1"
 	
@@ -74,7 +74,7 @@ MsgInfo("sitemap criado")
 
 Return
 
-static function escape(cStr)
+static function _escape(cStr)
 cStr := strtran(cStr,"'","''")
 return cStr
 

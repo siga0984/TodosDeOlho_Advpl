@@ -57,15 +57,44 @@ function Home()
 {
 	window.open("/","_self");
 }
+function SetFeedback(cAction,cProp) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("demo").innerHTML = xhttp.responseText;
+    }
+  };
+  xhttp.open("POST", "U_SetFeed.apw", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send('ACT='+cAction+'&IDPRO='+cProp);
+}
 </script>
 </head>
 <body>
+<%=H_FBSDK()%>
 <%=H_Ptitle()%>
-<h3>Convênio <%=cIDCNV%></h3>
-<p>Esta consulta mostra o detalhamento de uma determinada proposta  
-para a qual foi firmado um convênio, contendo todos os dados relacionados 
-a mesma, como o cronograma de desembolso, plano de aplicação detalhado, 
-proponentes, concedentes e afins.</p>
+<h3>
+<%=Capital(cMunic)%> / <%=cUF%><br>
+<%=Capital(cOrgaoCCD)%><br>
+Dados do Convênio <%=cIDCNV%>
+</h3>
+<% 
+/*
+<p>
+<img src="/images/BTNCurtir.png" alt="Curtir" style="cursor: pointer;" onclick="javascript:SetFeedback('C','<%=cIDPro%>');">&nbsp;
+<img src="/images/BTNDescurtir.png" alt="Desaprovar" style="cursor: pointer;" onclick="javascript:SetFeedback('D','<%=cIDPro%>');">&nbsp;
+<img src="/images/BTNSuspeito.png" alt="Suspeito" style="cursor: pointer;" onclick="javascript:SetFeedback('S','<%=cIDPro%>');">
+<div id="demo"></div>
+</p>
+*/
+%>
+<div
+  class="fb-like"
+  style="margin: 0 auto; width: 100%;"
+  data-share="true"
+  data-width="50"
+  data-show-faces="true">
+</div>
 <p><input type="button" value="Voltar" onclick="javascript:Voltar()"></p>
 <table>
 <% /* While !eof() */ %>

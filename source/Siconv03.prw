@@ -34,7 +34,6 @@ If empty(cIDMun) .or. empty(cCodCCD)
 Else
 	
 	
-	
 	If !U_MunByID(cIDMun,@cMunic,@cUF)
 		UserException("Municipio ["+cIDMun+"] não encontrado")
 	Endif
@@ -65,7 +64,7 @@ Else
 	
 	cQuery := U_PageQry("*",;
 	"PROSPGM",;
-	"UFPPN = '"+cUf+"' and NMMUNPPN = '"+escape(cMunic)+"' and CDORGCCD = '"+cCodCCD+"'",;
+	"UFPPN = '"+cUf+"' and NMMUNPPN = '"+_escape(cMunic)+"' and CDORGCCD = '"+cCodCCD+"'",;
 	cOrderBy,nPage,nPageSize)
 	
 	USE (TcGenQry(,,cQuery)) ALIAS QRY EXCLUSIVE NEW VIA "TOPCONN"
@@ -91,3 +90,6 @@ WEB EXTENDED END
 Return cHtml
 
 
+static function _escape(cStr)
+cStr := strtran(cStr,"'","''")
+return cStr

@@ -40,6 +40,11 @@ Else
 			TCSetField('QRYPROP',cCpo,'N',18,2)
 		Endif
 	Next
+
+	PRIVATE cCodCCD := QRYPROP->CDORGCCD
+	PRIVATE cMunic := alltrim(QRYPROP->NMMUNPPN)
+	PRIVATE cUF := QRYPROP->UFPPN      
+	PRIVATE cOrgaoCCD := alltrim(QRYPROP->NMORGCCD)
 	
 	
 	cQuery := "select * from CNVSPGMS where IDCNV = '"+cIDCNV+"'"

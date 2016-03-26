@@ -40,7 +40,7 @@ cQuery += "round(sum(VL_REPASSE)/1000000,2) AS REPASSE, "
 cQuery += "round(sum(VLCPTD)/1000000,2) AS CONTRAP, "
 cQuery += "count(*) as QTD from PROSPGM "
 cQuery += "where UFPPN = '"+cUf+"' "
-cQuery += "and NMMUNPPN = '"+escape(cMunic)+"' "
+cQuery += "and NMMUNPPN = '"+_escape(cMunic)+"' "
 cQuery += "group by CDORGCCD , NMORGCCD "
 cQuery += "order by 3 desc"
 
@@ -69,7 +69,7 @@ cQuery += "round(sum(VL_REPASSE)/1000000,2) AS REPASSE, "
 cQuery += "round(sum(VLCPTD)/1000000,2) AS CONTRAP, "
 cQuery += "count(*) as QTD from PROSPGM "
 cQuery += "where UFPPN = '"+cUf+"' "
-cQuery += "and NMMUNPPN = '"+escape(cMunic)+"' "
+cQuery += "and NMMUNPPN = '"+_escape(cMunic)+"' "
 cQuery += "and IDCNV != ' ' "
 cQuery += "group by CDORGCCD , NMORGCCD "
 cQuery += "order by 1"
@@ -112,3 +112,7 @@ WEB EXTENDED END
 
 Return cHTML
 
+
+static function _escape(cStr)
+cStr := strtran(cStr,"'","''")
+return cStr

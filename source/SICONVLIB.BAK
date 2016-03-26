@@ -120,38 +120,49 @@ Endif
 Return
 
 
+USER Function SetFeed()
+Local cIdProp := Httppost->IDPRO
+Local cAct   := Httppost->ACT 
 
-USER Function SetFeed(cIdProp,cFeed)
+If empty(cIdProp) .or. empty(cAct)
+	return "<p>Formato de requisição inválido</p>"
+endif
+              
+u_FeedPro()
 
 DbSelectArea("FEEDPRO")
 DBAppend(.t.)
 FEEDPRO->IDPRO := cIdProp
-FEEDPRO->ACAO := cFeed
+FEEDPRO->ACAO := cAct
 FEEDPRO->SESSION := HttpCookies->SESSIONID
 FEEDPRO->DTACT := date()
 DbRUnlock()
 
-Return
+Return "<p>Evento registrado</p>"
+
 
 
 
 USER Function DBSetup()
 Local nHTop
 
-If !TCIsConnected()
-	
-	SET DATE BRITISH
-	SET CENTURY ON
-	
-	nHTop := tclink()
-	
-	IF nHTop < 0
-		UserException("Falha de conexão com a base de dados - Errro ("+cValToChar(nHTop)+")")
-	Endif
-	
+If TCIsConnected()
+	Return .t.
 Endif
 
-Return
+SET DATE BRITISH
+SET CENTURY ON
+
+nHTop := tclink()
+
+If nHTop < 0 
+	UserException("Falha de conexão com o Banco de Dados - DBError ("+cValToChar(nHTop)+")")
+Endif     
+
+Return .T.
+
+
+
 
 // Paginação para MSSQL 
 

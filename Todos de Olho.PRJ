@@ -16,7 +16,7 @@ Group Todos de Olho
       FoldersCount=1
       Folder Fontes
          VSSPath=Fontes
-         FilesCount=41
+         FilesCount=42
          File \GitHub\TodosDeOlho_Advpl\source\Footer.aph
              Type=T
          End
@@ -138,6 +138,9 @@ Group Todos de Olho
              Type=T
          End
          File \GitHub\TodosDeOlho_Advpl\source\SICError.aph
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\FBSDK.aph
              Type=T
          End
       End

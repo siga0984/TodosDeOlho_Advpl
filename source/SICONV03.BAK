@@ -23,7 +23,7 @@ U_DBSetup()
 
 U_LogSite()
 
-If empty(cIDMun) .or empty(cCodCCD)
+If empty(cIDMun) .or. empty(cCodCCD)
 
 	PRIVATE cErrorMSG := "Parâmetros de pesquisa não recebidos."
 	PRIVATE cErrorHLP := 'A busca por propostas não recebeu corretamente o municípo e o órgão a serem pesquisados. '+;
@@ -65,7 +65,7 @@ Else
 	
 	cQuery := U_PageQry("*",;
 	"PROSPGM",;
-	"UFPPN = '"+cUf+"' and NMMUNPPN = '"+escape(cMunic)+"' and CDORGCCD = '"+cCodCCD+"'",;
+	"UFPPN = '"+cUf+"' and NMMUNPPN = '"+_escape(cMunic)+"' and CDORGCCD = '"+cCodCCD+"'",;
 	cOrderBy,nPage,nPageSize)
 	
 	USE (TcGenQry(,,cQuery)) ALIAS QRY EXCLUSIVE NEW VIA "TOPCONN"
@@ -91,3 +91,6 @@ WEB EXTENDED END
 Return cHtml
 
 
+static function _escape(cStr)
+cStr := strtran(cStr,"'","''")
+return cStr

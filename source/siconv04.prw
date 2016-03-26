@@ -41,6 +41,11 @@ Else
 			TCSetField('QRY',cCpo,'N',18,2)
 		Endif
 	Next
+
+	PRIVATE cCodCCD := QRY->CDORGCCD
+	PRIVATE cMunic := alltrim(QRY->NMMUNPPN)
+	PRIVATE cUF := QRY->UFPPN      
+	PRIVATE cOrgaoCCD := alltrim(QRY->NMORGCCD)
 	
 	cQuery := "select * from PROGRAMAS where CDPGM = '"+alltrim(QRY->CDPGM)+"'"
 	
