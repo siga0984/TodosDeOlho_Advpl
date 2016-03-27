@@ -13,7 +13,7 @@ Group Todos de Olho
    End
    ProjectsCount=1
    Project Web Site ADVPL
-      FoldersCount=1
+      FoldersCount=2
       Folder Fontes
          VSSPath=Fontes
          FilesCount=42
@@ -141,6 +141,13 @@ Group Todos de Olho
              Type=T
          End
          File \GitHub\TodosDeOlho_Advpl\source\FBSDK.aph
+             Type=T
+         End
+      End
+      Folder Scripts
+         VSSPath=Nova Pasta2
+         FilesCount=1
+         File \GitHub\TodosDeOlho_Advpl\source\SMunicip.prw
              Type=T
          End
       End
