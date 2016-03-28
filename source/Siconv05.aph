@@ -97,7 +97,6 @@ Dados do Convênio <%=cIDCNV%>
 </div>
 <p><input type="button" value="Voltar" onclick="javascript:Voltar()"></p>
 <table>
-<% /* While !eof() */ %>
 <% If !empty(QRYCONV->TXMOD) %>
 <tr>
 <td>Modalidade do Convênio</td>

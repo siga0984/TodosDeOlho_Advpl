@@ -146,8 +146,11 @@ Group Todos de Olho
       End
       Folder Scripts
          VSSPath=Nova Pasta2
-         FilesCount=1
+         FilesCount=2
          File \GitHub\TodosDeOlho_Advpl\source\SMunicip.prw
+             Type=T
+         End
+         File \GitHub\TodosDeOlho_Advpl\source\sOrgao.prw
              Type=T
          End
       End

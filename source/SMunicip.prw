@@ -23,6 +23,9 @@ cCreate += '   LONGITUDE FLOAT (6,2) NOT NULL );'+CRLF
 fWrite(nH , cCreate )
 fWrite(nH , CRLF )
 
+fWrite(nH , 'SET autocommit = 0;'+CRLF )
+fWrite(nH , CRLF )
+
 While !eof()
 	If ! empty(QRY->CODIGO)
 		cSave := "Insert into MUNICIP (CODIGO,NOME,UF,LATITUDE,LONGITUDE) values ("
@@ -37,7 +40,9 @@ While !eof()
 	DbSkip()
 Enddo
 
+fWrite(nH , 'commit;'+CRLF )
 fWrite(nH , CRLF )
+	
 fWrite(nH ,'Create Index MUNICIP1 ON MUNICIP ( CODIGO );'+CRLF)
 fWrite(nH ,'Create Index MUNICIP2 ON MUNICIP ( UF,NOME );'+CRLF)
 

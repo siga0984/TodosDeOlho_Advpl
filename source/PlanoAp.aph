@@ -1,12 +1,21 @@
 <tr><td id="tdcenter" colspan="2">Plano de Aplicação Detalhado</td></tr>
 <%
-While !QRYPLANOAP->(eof())
+IF QRYPLANOAP->(eof())
+%>
+<tr>
+<td><b>------</b></td>
+<td id="tdgray"><b>----------------</b></td>
+</tr>
+<%
+Else
+	While !QRYPLANOAP->(eof())
 %>
 <tr>
 <td><%=Capital(alltrim(QRYPLANOAP->NMNATUREZA))%></td>
 <td id="tdgray">R$ <%=Transform(QRYPLANOAP->VL_TOTAL,"@E 999,999,999,999.99")%> ( <%=Capital(alltrim(QRYPLANOAP->TXDESCRICA))%> )</td>
 </tr>
 <%
-	QRYPLANOAP->(DbSkip())
-Enddo
+		QRYPLANOAP->(DbSkip())
+	Enddo
+Endif
 %>

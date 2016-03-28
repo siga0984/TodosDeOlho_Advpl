@@ -96,7 +96,7 @@ Dados da Proposta <%=cIDPro%>
 </div>
 <p><input type="button" value="Voltar" onclick="javascript:Voltar()"></p>
 <table>
-<% While !eof() %>
+<% While !QRY->(eof()) %>
 <% If !empty(QRY->TXMOD) %>
 <tr>
 <td>Modalidade do Convênio</td>
@@ -367,7 +367,7 @@ Dados da Proposta <%=cIDPro%>
 </tr>
 <% Endif %>
 <tr><td colspan="2">&nbsp;</td></tr>
-<% DbSkip() %>
+<% QRY->(DbSkip()) %>
 <% Enddo %>
 </table>
 <p>
