@@ -70,9 +70,9 @@ Else
 	For nI := 1 to len(aStru)
 		cCpo := aStru[nI][1]
 		If left(cCpo,2)=="DT"
-			TCSetField('QRYPROG',cCpo,'D',8,0)
+			TCSetField('QRYPLANOAP',cCpo,'D',8,0)
 		ElseIf left(cCpo,2)=="VL"
-			TCSetField('QRYPROG',cCpo,'N',18,2)
+			TCSetField('QRYPLANOAP',cCpo,'N',18,2)
 		Endif
 	Next
 	

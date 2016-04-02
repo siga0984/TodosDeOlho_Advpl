@@ -49,6 +49,7 @@ fique por dentro da utilização das verbas e ajude o país a acabar com a corrupçã
 Participe e compartilhe esta iniciativa.</p>  
 <p><input type="button" value="Consultar Propostas" onclick="javascript:Entrar('/u_siconvuf.apw')"></p>
 <p><input type="button" value="Precisa de Ajuda ?" onclick="javascript:Entrar('/U_SicHelp.apw')"></p>
+<p><input type="button" value="Estatísticas" onclick="javascript:Entrar('/U_SicStat.apw')"></p>
 <p><input type="button" value="Sobre o Site" onclick="javascript:Entrar('/U_SicAbout.apw')"></p>
 <p><img src='/images/EstamosDeOlho.png'></p>
 <div style="margin: 0 auto; width: 100%;" class="fb-share-button" data-href="http://siga0984.no-ip.org:7000/" data-layout="button_count"></div>

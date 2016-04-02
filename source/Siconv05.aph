@@ -57,11 +57,26 @@ function Home()
 {
 	window.open("/","_self");
 }
+function ParseParams(query) {
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
 function SetFeedback(cAction,cProp) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-      document.getElementById("demo").innerHTML = xhttp.responseText;
+    if (xhttp.readyState == 4 && xhttp.status == 200) 
+    {
+      xRet = ParseParams(xhttp.responseText);
+      var apoia = window.document.getElementById('_A');
+      var reprova = window.document.getElementById('_R');
+      var suspeito = window.document.getElementById('_S');
+			apoia.value = xRet['A'];
+			reprova.value = xRet['R'];
+			suspeito.value = xRet['S'];
     }
   };
   xhttp.open("POST", "U_SetFeed.apw", true);
@@ -78,16 +93,20 @@ function SetFeedback(cAction,cProp) {
 <%=Capital(cOrgaoCCD)%><br>
 Dados do Convênio <%=cIDCNV%>
 </h3>
-<% 
-/*
-<p>
-<img src="/images/BTNCurtir.png" alt="Curtir" style="cursor: pointer;" onclick="javascript:SetFeedback('C','<%=cIDPro%>');">&nbsp;
-<img src="/images/BTNDescurtir.png" alt="Desaprovar" style="cursor: pointer;" onclick="javascript:SetFeedback('D','<%=cIDPro%>');">&nbsp;
-<img src="/images/BTNSuspeito.png" alt="Suspeito" style="cursor: pointer;" onclick="javascript:SetFeedback('S','<%=cIDPro%>');">
-<div id="demo"></div>
-</p>
-*/
+<%
+U_SetVisto(cIDPro)
+aRet := U_GetFeed(cIDPro)
 %>
+<p style="font-size: 150%;">
+<img src="/images/BTNCurtir.png" alt="Apoiar" title="Clique aqui se você apoia este convênio" style="cursor: pointer;" onclick="javascript:SetFeedback('A','<%=cIDPro%>');">
+<sup> = <input type='text' name='_A' id="_A" size="2" value="<%=aRet[1]%>" readonly></sup>&nbsp;
+<img src="/images/BTNDescurtir.png" title="Clique aqui se você não aprova este convênio" alt="Desaprovar" style="cursor: pointer;" onclick="javascript:SetFeedback('R','<%=cIDPro%>');">
+<sup> = <input type='text' name='_R' id="_R" size="2" value="<%=aRet[2]%>" readonly></sup>
+</p>
+<p style="font-size: 150%">
+<img src="/images/BTNSuspeito.png" alt="Suspeito" title="Clique aqui se você acha este convênio suspeita" style="cursor: pointer;" onclick="javascript:SetFeedback('S','<%=cIDPro%>');">
+<sup> = <input type='text' name='_S' id="_S" size="2" value="<%=aRet[3]%>" readonly></sup>
+</p>
 <div
   class="fb-like"
   style="margin: 0 auto; width: 100%;"

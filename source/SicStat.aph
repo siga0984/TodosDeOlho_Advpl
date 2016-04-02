@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<%=H_HeadMetas()%>
+<style>
+input, textarea {
+  max-width:100%;
+}
+h1, h3 {
+  text-align:center;
+}
+p {
+  text-align:center;
+  font-size: 100%;
+}
+td, input {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    font-size: 130%;
+}
+</style>
+<script type="text/javascript">
+function Voltar()
+{
+	window.open("/","_self");
+}
+</script>
+</head>
+<body>
+<%=H_Ptitle()%>
+<h3>Estatísticas de Acesso</h3>
+<table><tr>
+<td>PageViews de Hoje</td><td><input type='text' name='_a' id="_a" size="5" value="<%=nHitsHoje%>" readonly></td>
+</tr>
+<tr>
+<td>PageViews Total</td><td><input type='text' name='_b' id="_b" size="5" value="<%=nHitsTot%>" readonly></td>
+</tr>
+<tr>
+<td>Uso de Localização</td><td><input type='text' name='_c' id="_c" size="5" value="<%=nGeoLocation%>" readonly></td>
+</tr>
+<tr>
+<td>Municípios Consultados</td><td><input type='text' name='_d' id="_d" size="5" value="<%=nTotMunicip%>" readonly></td>
+</tr>
+<tr>
+<td>Propostas Consultadas</td><td><input type='text' name='_e' id="_e" size="5" value="<%=nTotProp%>" readonly></td>
+</tr>
+<tr>
+<td>Convênios Consultados</td><td><input type='text' name='_f' id="_f" size="5" value="<%=nTotConv%>" readonly></td>
+</tr>
+</table>
+<p><input type="button" value="Voltar" onclick="javascript:Voltar()"></p>
+<br>
+<br>
+<%=H_Footer()%>
+</body>
+</html>

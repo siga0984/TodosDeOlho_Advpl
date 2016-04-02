@@ -32,20 +32,18 @@ If empty(cLat) .or. empty(cLong)
 	
 Else
 	
-	cQuery := "select MUN.CODIGO,GEO.MUNICIPIO,GEO.UF,"
-	cQuery += " abs ( round(LATITUDE,2) - (-23.60) )  + abs ( round(LONGITUDE,2) - (-46.74) ) as DIF "
-	cQuery += " from convenioaux.dbo.MunicipiosBrasil1 GEO , "
-	cQuery += " convenioaux.dbo.MUNICIP MUN "
-	cQuery += " where abs ( round(GEO.LATITUDE,2) - ("+cValToChar(nLat)+") )  "
-	cQuery += " + abs ( round(GEO.LONGITUDE,2) - ("+cValToChar(nLong)+") ) < 0.2 "
-	cQuery += " and  GEO.MUNICIPIO = MUN.NOME "
-	cQuery += " and  GEO.UF = MUN.UF "
-	cQuery += " order by 4"
+	cQuery := "select CODIGO,NOME,UF, "
+	cQuery += " abs ( round(LATITUDE,2) - ("+cValToChar(nLat)+") )  "
+	cQuery += " + abs ( round(LONGITUDE,2) - ("+cValToChar(nLong)+") ) as DIF  "
+	cQuery += " from convenioaux.dbo.MUNICIP where  "
+	cQuery += " ( abs ( round(LATITUDE,2) - ("+cValToChar(nLat)+") )  "
+	cQuery += " + abs ( round(LONGITUDE,2) - ("+cValToChar(nLong)+") ))  "
+	cQuery += " < 0.2 order by 4"
 	
 	USE (TcGenQry(,,cQuery)) ALIAS QRY EXCLUSIVE NEW VIA "TOPCONN"
 	
 	While !eof()
-		aadd(aMunic,{QRY->CODIGO,alltrim(QRY->MUNICIPIO),alltrim(QRY->UF)})
+		aadd(aMunic,{QRY->CODIGO,alltrim(QRY->NOME),alltrim(QRY->UF)})
 		DbSkip()
 	Enddo
 	
